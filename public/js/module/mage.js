@@ -1,6 +1,6 @@
 export class mage extends Heros{
-    constructor (nom, ptVIE, ptAttaque, ptMana){
+    constructor (nom, ptVIE, ptAttaque, mana){
         super(nom, ptVIE, ptAttaque);
-        this.ptMana = ptMana;
+        this.ptMana = mana;
     }
 }
