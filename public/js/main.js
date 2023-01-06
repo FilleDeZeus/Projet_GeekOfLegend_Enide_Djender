@@ -1,59 +1,55 @@
-import {Heros} from './module/heros.js';
-import {Mage} from './module/mage.js';
-import {Guerrier} from './module/guerrier.js';
-import {Archer} from './module/archer.js';
-import {Boss} from './module/boss.js';
+import { guerrier, mage, archer, sauron, chronos, lilith } from "./module/personnages.js";
 
-let bossBattu = [];
-let tabBoss = [sauron, chronos, lilith];
-let lesHeros = [guerrier, mage, archer];
+let bossVaincu = [];
+let tableauBoss = [sauron, chronos, lilith];
+let tableauHeros = [guerrier, mage, archer];
 
 //Choix aléatoire du Boss
-function chooseBoss() {
-    return tabBoss[Math.round(Math.random() * 2)];
+function BossAleatoire() {
+    return tableauBoss[Math.round(Math.random() * 2)];
 }
 
-let boss = chooseBoss();
+let boss = BossAleatoire();
 
-//Choix de la posture des heros
-function posture() {
-    alert(`Tu vas faire face à ${boss.nom}. Choisis maintenant la posture de tes combattants (attaque, défense, normal):`)
-    let postureGuerrier = prompt(`Quelle sera la posture de ${guerrier.nom}?`);
-    switch (postureGuerrier) {
+//Choix de l'action des heros
+function action() {
+    alert(`Ton adversaire est ${boss}. Choisis l'action de tes combattants (attaque, défense, normal):`)
+    let actionGuerrier = prompt(`Quelle sera l'action de ${guerrier.nom}?`);
+    switch (actionGuerrier) {
         case "attaque":
-            guerrier.posture_attaque();
+            guerrier.action_attaque();
             break;
         case "défense":
-            guerrier.posture_defense();
-            lesHeros.push(guerrier);
+            guerrier.action_defense();
+            tableauHeros.push(guerrier);
             break;
         case "normal":
             break;
         default:
             break;
     }
-    let postureMage = prompt(`Quelle sera la posture de ${mage.nom}?`);
-    switch (postureMage) {
+    let actionMage = prompt(`Quelle sera l'action de ${mage.nom}?`);
+    switch (actionMage) {
         case "attaque":
-            mage.posture_attaque();
+            mage.action_attaque();
             break;
         case "défense":
-            mage.posture_defense();
-            lesHeros.push(mage);
+            mage.action_defense();
+            tableauHeros.push(mage);
             break;
         case "normal":
             break;
         default:
             break;
     }
-    let postureArcher = prompt(`Quelle sera la posture de ${archer.nom}?`);
-    switch (postureArcher) {
+    let actionArcher = prompt(`Quelle sera l'action de ${archer.nom}?`);
+    switch (actionArcher) {
         case "attaque":
-            archer.posture_attaque();
+            archer.action_attaque();
             break;
         case "défense":
-            archer.posture_defense();
-            lesHeros.push(archer);
+            archer.action_defense();
+            tableauHeros.push(archer);
             break;
         case "normal":
             break;
@@ -66,72 +62,71 @@ function posture() {
 function combat() {
 
     alert("Le combat va commencer!")
+    console.log("Le combat va commencer!");
+    let vingt = boss.ptVie / 5;
 
-    //pv a partir duquelle le boss lance l'enigme
-    let vingt = boss.pv / 5;
-
-    while (boss.pv > vingt && (guerrier.pv > 0 || archer.pv > 0 || mage.pv > 0)) {
+    while (boss.ptVie > vingt && (guerrier.ptVie > 0 || archer.ptVie > 0 || mage.ptVie > 0)) {
 
         guerrier.rage();
         mage.pointsMana();
 
         // Attaques des héros
-        if (guerrier.pv > 0) {
+        if (guerrier.ptVie > 0) {
             alert(`${guerrier.nom} attaque ${boss.nom}`);
-            boss.pv -= guerrier.pa;
-            alert(`${boss.nom} perd ${guerrier.pa} points de vie. Il lui reste ${boss.pv}pv`);
+            boss.ptVie -= guerrier.ptAttaque;
+            alert(`${boss.nom} perd ${guerrier.ptAttaque} points de vie. Il lui reste ${boss.ptVie}pv`);
         }
 
-        if (archer.pv > 0 && boss.pv > 0 && archer.fleches >= 2) {
+        if (archer.ptVie > 0 && boss.ptVie > 0 && archer.fleches >= 2) {
             alert(`${archer.nom} attaque ${boss.nom}`)
-            boss.pv -= archer.pa;
-            alert(`${boss.nom} perd ${archer.pa} points de vie. Il lui reste ${boss.pv}pv`);
+            boss.ptVie -= archer.ptAttaque;
+            alert(`${boss.nom} perd ${archer.ptAttaque} points de vie. Il lui reste ${boss.ptVie}pv`);
             archer.nbreFleche();
-        } else if (archer.pv > 0 && archer.fleches < 2) {
+        } else if (archer.ptVie > 0 && archer.fleches < 2) {
             alert(`${archer.nom} n'a plus de flèches. Il passe un tour.`)
         }
 
-        if (mage.pv > 0 && boss.pv > 0 && mage.mana >= 2) {
+        if (mage.ptVie > 0 && boss.ptVie > 0 && mage.mana >= 2) {
             alert(`${mage.nom} attaque ${boss.nom}`)
-            boss.pv -= mage.pa;
-            alert(`${boss.nom} perd ${mage.pa} points de vie. Il lui reste ${boss.pv}pv`);
-        } else if (mage.pv > 0 && mage.mana < 2) {
+            boss.ptVie -= mage.ptAttaque;
+            alert(`${boss.nom} perd ${mage.ptAttaque} points de vie. Il lui reste ${boss.ptVie}pv`);
+        } else if (mage.ptVie > 0 && mage.mana < 2) {
             alert(`${mage.nom} n'a plus de mana. Il passe un tour.`)
         }
 
         //Choix de la victime du boss
-        let defenseur = lesHeros[Math.floor(Math.random() * lesHeros.length)];
-        while (defenseur.pv <= 0) {
-            defenseur = lesHeros[Math.floor(Math.random() * lesHeros.length)];
+        let defenseur = tableauHeros[Math.floor(Math.random() * tableauHeros.length)];
+        while (defenseur.ptVie <= 0) {
+            defenseur = tableauHeros[Math.floor(Math.random() * tableauHeros.length)];
         }
 
         //Attaque du boss
-        if (boss.pv > vingt) {
+        if (boss.ptVie > vingt) {
             alert(`${boss.nom} attaque ${defenseur.nom}`);
-            defenseur.pv -= boss.pa;
-            if (defenseur.pv >= 0) {
-                alert(`${defenseur.nom} perd ${boss.pa} points de vie. Il lui reste ${defenseur.pv}pv`);
+            defenseur.ptVie -= boss.ptAttaque;
+            if (defenseur.ptVie >= 0) {
+                alert(`${defenseur.nom} perd ${boss.ptAttaque} points de vie. Il lui reste ${defenseur.ptVie}pv`);
             } else {
                 alert(`Attaque critique! ${defenseur.nom} n'a plus de pv.`);
             }
         }
 
-        if (defenseur.pv <= 0) {
+        if (defenseur.ptVie <= 0) {
             alert(`${defenseur.nom} est mort`);
         }
     }
-    if (boss.pv < vingt) {
+    if (boss.ptVie < vingt) {
         alert(`${boss.nom} est bientôt mort. En dernière resource, il lance énigme. Si tu trouves la réponse tu gagnes, sinon, tu perds.`);
         boss.enigme(guerrier, mage, archer);
     }
 
-    if (boss.pv <= 0) {
-        alert(`Tu as battu ${boss.nom}. Félicitations!`);
-    } else if (guerrier.pv <= 0 && archer.pv <= 0 && mage.pv <= 0) {
-        alert(`Tu as perdu. Tu auras plus de chance la prochaine fois.`);
+    if (boss.ptVie <= 0) {
+        alert(`Tu as vaincu ${boss.nom}. Félicitations!`);
+    } else if (guerrier.ptVie <= 0 && archer.ptVie <= 0 && mage.ptVie <= 0) {
+        alert(`Tu as été vaincu. Un peu plus d'entrainement et la prochaine sera peut être la bonne`);
     }
 }
 
-chooseBoss()
-posture()
+BossAleatoire()
+action()
 combat()
