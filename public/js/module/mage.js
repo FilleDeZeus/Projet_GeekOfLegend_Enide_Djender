@@ -4,7 +4,7 @@ export class Mage extends Heros{
         super(nom, ptVIE, ptAttaque);
         this.Mana = mana;
     }
-    Mana(){
+    Pouvoir(){
         if (this.mana >= 2){
             this.mana = this.mana - 2; //this.mana -= 2;
         } else {

@@ -1,26 +1,26 @@
 import { guerrier, mage, archer, sauron, chronos, lilith } from "./module/personnages.js";
-
+import { Heros } from "./module/heros.js";
 let bossVaincu = [];
 let tableauBoss = [sauron, chronos, lilith];
+
 let tableauHeros = [guerrier, mage, archer];
 
 //Choix aléatoire du Boss
 function BossAleatoire() {
     return tableauBoss[Math.round(Math.random() * 2)];
 }
-
 let boss = BossAleatoire();
 
 //Choix de l'action des heros
 function action() {
-    alert(`Ton adversaire est ${boss}. Choisis l'action de tes combattants (attaque, défense, normal):`)
+    alert(`Ton adversaire est ${boss.nom}. Choisis l'action de tes combattants (attaque, défense, normal):`)
     let actionGuerrier = prompt(`Quelle sera l'action de ${guerrier.nom}?`);
     switch (actionGuerrier) {
         case "attaque":
-            guerrier.action_attaque();
+            guerrier.Attaque();
             break;
         case "défense":
-            guerrier.action_defense();
+            guerrier.Defense();
             tableauHeros.push(guerrier);
             break;
         case "normal":
@@ -31,10 +31,10 @@ function action() {
     let actionMage = prompt(`Quelle sera l'action de ${mage.nom}?`);
     switch (actionMage) {
         case "attaque":
-            mage.action_attaque();
+            mage.Attaque();
             break;
         case "défense":
-            mage.action_defense();
+            mage.Defense();
             tableauHeros.push(mage);
             break;
         case "normal":
@@ -45,10 +45,10 @@ function action() {
     let actionArcher = prompt(`Quelle sera l'action de ${archer.nom}?`);
     switch (actionArcher) {
         case "attaque":
-            archer.action_attaque();
+            archer.Attaque();
             break;
         case "défense":
-            archer.action_defense();
+            archer.Defense();
             tableauHeros.push(archer);
             break;
         case "normal":
@@ -67,8 +67,8 @@ function combat() {
 
     while (boss.ptVie > vingt && (guerrier.ptVie > 0 || archer.ptVie > 0 || mage.ptVie > 0)) {
 
-        guerrier.rage();
-        mage.pointsMana();
+        guerrier.Rage();
+        mage.Pouvoir();
 
         // Attaques des héros
         if (guerrier.ptVie > 0) {

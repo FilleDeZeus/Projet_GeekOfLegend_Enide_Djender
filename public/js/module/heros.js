@@ -1,5 +1,5 @@
 export class Heros{
-    constuctor(nom,ptVie,ptAttaque, action){
+    constructor(nom,ptVie,ptAttaque, action){
         this.nom =nom;
         this.ptVie = ptVie;
         this.ptAttaque = ptAttaque;

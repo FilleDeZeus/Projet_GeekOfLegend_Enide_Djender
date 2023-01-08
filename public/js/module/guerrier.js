@@ -11,7 +11,7 @@ export class Guerrier extends Heros{
         }
         else if (this.ptRage ==4){
             this.ptRage = 0;
-            return this.ptAttaque = this.ptAttaque * 1.25;
+            return this.ptAttaque = this.ptAttaque * 1.25; //this.pa *= 1.25;
         }else{
             return this.ptAttaque;
         }
