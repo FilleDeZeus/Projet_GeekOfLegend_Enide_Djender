@@ -1,6 +1,5 @@
 import { guerrier, mage, archer, sauron, chronos, lilith } from "./module/personnages.js";
-import { Heros } from "./module/heros.js";
-let bossVaincu = [];
+
 let tableauBoss = [sauron, chronos, lilith];
 
 let tableauHeros = [guerrier, mage, archer];

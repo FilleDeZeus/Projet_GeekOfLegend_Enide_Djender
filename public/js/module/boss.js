@@ -4,8 +4,8 @@ export class Boss {
         this.ptVie = ptVie;
         this.ptAttaque = ptAttaque;
     }
-    attaque(hero) {
-        hero.ptVie -= this.ptAttaque;
+    attaque(heros) {
+        heros.ptVie -= this.ptAttaque;
     }
     enigme(hero1, hero2, hero3) {
 
