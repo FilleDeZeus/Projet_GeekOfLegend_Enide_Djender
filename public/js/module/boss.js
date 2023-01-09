@@ -19,14 +19,18 @@ export class Boss {
 
             switch (choix) {
                 case 1:
-                    reponse= prompt("Une fois que l'on me prononce, je n'existe plus. Qui suis-je ?");
+                    reponse= prompt("Une fois que l'on me prononce, je n'existe plus. Qui suis-je ? (si faute d'orthographe réponse fausse)");
                     if (reponse== "le silence") {
+                        resultat = true
+                    } else if (reponse== "silence"){
                         resultat = true
                     }
                     break;
                 case 2:
-                    reponse= prompt("Je suis d'eau,je suis d'air,et je suis d'électricité. Qui suis-je ?");
+                    reponse= prompt("Je suis d'eau,je suis d'air,et je suis d'électricité. Qui suis-je ? (si faute d'orthographe réponse fausse)" );
                     if (reponse= "le courant") {
+                        resultat = true
+                    } else if (reponse== "courant"){
                         resultat = true
                     }
                     break;

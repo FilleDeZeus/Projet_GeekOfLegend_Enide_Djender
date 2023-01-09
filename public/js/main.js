@@ -134,8 +134,8 @@ function combat() {
     }
 
     if (boss.ptVie <= 0) {
-        alert(`Tu as gagné ${boss.nom}. Félicitations!`);
-        console.log(`Tu as gagné ${boss.nom}. Félicitations!`);
+        alert(`Tu as gagné contre ${boss.nom}. Félicitations!`);
+        console.log(`Tu as gagné contre ${boss.nom}. Félicitations!`);
     } else if (guerrier.ptVie <= 0 && archer.ptVie <= 0 && mage.ptVie <= 0) {
         alert(`Tu as été vaincu. Un peu plus d'entrainement et la prochaine sera peut être la bonne`);
         console.log(`Tu as été vaincu. Un peu plus d'entrainement et la prochaine sera peut être la bonne`);

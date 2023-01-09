@@ -11,8 +11,8 @@ export class Heros{
         this.action = "attaque";
     }
     Defense(){
-        this.ptAttaque = this.ptAttaque * 1.4;
-        this.ptVie = this.ptVie * 0.75;
+        this.ptAttaque = this.ptAttaque * 0.5;
+        this.ptVie = this.ptVie * 2.5;
         this.action = "defense";
     }      
 }
