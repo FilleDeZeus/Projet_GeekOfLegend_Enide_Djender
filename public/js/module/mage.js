@@ -1,7 +1,7 @@
 import {Heros} from './heros.js';
 export class Mage extends Heros{
-    constructor (nom, ptVIE, ptAttaque, mana){
-        super(nom, ptVIE, ptAttaque);
+    constructor (nom, ptVIE, ptAttaque,action, mana){
+        super(nom, type,ptVie,ptAttaque, action);
         this.Mana = mana;
     }
     Pouvoir(){

@@ -1,17 +1,17 @@
 import {Heros} from './heros.js';
 export class Archer extends Heros{
-    constructor (nom, ptVIE, ptAttaque, nbrFleches){
-        super(nom, ptVIE, ptAttaque);
-        this.nbrFleches;
+    constructor (nom, ptVIE, ptAttaque, action, nbrFleches){
+        super(nom, type,ptVie,ptAttaque, action);
+        this.nbrFleches = nbrFleches;
     }
     Fleche(){
-        if (this.nbrfleche>=2){
-            this.nbrfleche = this.nbrFleches - 1; //this.nbrfleche -= 1;
-            if (this.nbrfleche >= 2);
+        if (this.nbrFleches>=2){
+            this.nbrFleches = this.nbrFleches - 1; //this.nbrfleche -= 1;
+            if (this.nbrFleches >= 2);
         } else if (this.nbr = 0){
-            this.nbrfleche = 6
+            this.nbrFleches = 6
         } else {
-            this.nbrfleche = this.nbrfleche + 1; //this.nbrfleche += 1;
+            this.nbrFleche = this.nbrFleches + 1; //this.nbrfleche += 1;
         }
     }
 }

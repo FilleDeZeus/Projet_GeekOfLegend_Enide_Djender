@@ -12,37 +12,43 @@ let totalptAttaque = 400;
 alert(`Nous allons bientôt commencer le combat mais avant ca tu vas devoir créer tes Héros donc nous te demanderons d'entrer un nom, un nombre de point de Vie et d'attaque.`)
 alert(`Ton total de point de Vie à repartir entre tes Héros est ${totalptVie} et celui de point d'attaque est ${totalptAttaque}.`)
 let ptVieGuerrier = +prompt(`Tu as un total de ${totalptVie} points de vie. Combien de points de vie veux-tu donner à ton guerrier?`);
-console.log(`Tu as un total de ${totalptVie} points de vie. Combien de points de vie veux-tu donner à ton guerrier?`);
-console.log(ptVieGuerrier);
+    console.log(`Tu as un total de ${totalptVie} points de vie. Combien de points de vie veux-tu donner à ton guerrier?`);
+    console.log(ptVieGuerrier);
 if (ptVieGuerrier > totalptVie) {
-    while (ptVieGuerrier > totalptVie) {
+    while (ptVieGuerrier > totalptVie ) {
         ptVieGuerrier = +prompt(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
-    console.log(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
+        console.log(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
     } 
-} else if (isNaN(ptVieGuerrier)) {
-    ptVieGuerrier = +prompt(`Ce n'est pas un nombre. Rentre un nombre`);
-    while (ptVieGuerrier > totalptVie) {
-        ptVieGuerrier = +prompt(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
-    console.log(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
-    } 
+} 
+else if (isNaN(ptVieGuerrier) ) {
+    while (isNaN(ptVieGuerrier)){
+        ptVieGuerrier = +prompt(`Ce n'est pas un nombre. Rentre un nombre`);
+        while (ptVieGuerrier > totalptVie) {
+            ptVieGuerrier = +prompt(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
+            console.log(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
+        } 
+    }
 }
 
+
 //----------POINTS D'ATTAQUE------
-let ptAttaqueGuerrier = +prompt(`Il te reste ${totalptAttaque} points d'attaque. Combien de points d'attaque veux-tu donner à ton guerrier?`);
-console.log(`Il te reste ${totalptAttaque} points d'attaque. Combien de points d'attaque veux-tu donner à ton guerrier?`);
-console.log(ptAttaqueGuerrier);
+let ptAttaqueGuerrier = +prompt(`Tu as un total de  ${totalptAttaque} points d'attaque. Combien de points d'attaque veux-tu donner à ton guerrier?`);
+    console.log(`Tu as un total de  ${totalptAttaque} points d'attaque. Combien de points d'attaque veux-tu donner à ton guerrier?`);
+    console.log(ptAttaqueGuerrier);
 if (ptAttaqueGuerrier > totalptAttaque) {
     while (ptAttaqueGuerrier > totalptAttaque) {
         ptAttaqueGuerrier = +prompt(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}`);
-    console.log(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}`);
-    }
-}else if (isNaN(ptAttaqueGuerrier)){
-    while (isNaN(ptAttaqueGuerrier)){
-    ptAttaqueGuerrier = +prompt(`Ce n'est pas un nombre. Rentre un nombre`);
-    while (ptAttaqueGuerrier > totalptAttaque) {
-        ptAttaqueGuerrier = +prompt(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}`);
         console.log(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}`);
-    } }
+    }
+}
+else if (isNaN(ptAttaqueGuerrier)){
+    while (isNaN(ptAttaqueGuerrier)){
+        ptAttaqueGuerrier = +prompt(`Ce n'est pas un nombre. Rentre un nombre`);
+        while (ptAttaqueGuerrier > totalptAttaque) {
+            ptAttaqueGuerrier = +prompt(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}`);
+            console.log(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}.`);
+        } 
+    }
 }
 
 export let guerrier = new Guerrier(prompt("Comment veux-tu appeller ton guerrier?"), ptVieGuerrier, ptAttaqueGuerrier, 0);
@@ -54,31 +60,40 @@ totalptAttaque = totalptAttaque - ptAttaqueGuerrier; //totalptAttaque -= ptAttaq
 //------------------------------MAGE---------------
 //----------POINTS DE VIE-------
 let ptVieMage = +prompt(`Il te reste ${totalptVie} points de vie. Combien de points de vie veux-tu donner à ton Mage?`);
-console.log(`Il te reste ${totalptVie} points de vie. Combien de points de vie veux-tu donner à ton Mage?`);
-console.log(ptVieMage);
+    console.log(`Il te reste ${totalptVie} points de vie. Combien de points de vie veux-tu donner à ton Mage?`);
+    console.log(ptVieMage);
 if (ptVieMage > totalptVie) {
-    ptVieMage = +prompt(`Tu n'as pas assez de points de vie. Rentre une valeur en dessous de ${totalptVie}.`);
-    console.log(`Tu n'as pas assez de points de vie. Rentre une valeur en dessous de ${totalptVie}.`);
+    while(ptVieMage>totalptVie){
+        ptVieMage = +prompt(`Tu n'as pas assez de points de vie. Rentre une valeur en dessous de ${totalptVie}.`);
+        console.log(`Tu n'as pas assez de points de vie. Rentre une valeur en dessous de ${totalptVie}.`);
+    }
 }else if (isNaN(ptVieMage)) {
-    ptVieMage = +prompt(`Ce n'est pas un nombre. Rentre un nombre`);
-    while (ptVieMage > totalptVie) {
-        ptVieMage = +prompt(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
-    console.log(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
-    } 
+    while (isNaN(ptVieMage)){
+        ptVieMage = +prompt(`Ce n'est pas un nombre. Rentre un nombre`);
+        while (ptVieMage > totalptVie) {
+            ptVieMage = +prompt(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
+            console.log(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
+        } 
+    }
 }
 //----------POINTS D'ATTAQUE------
 let ptAttaqueMage = +prompt(`Il te reste ${totalptAttaque} points d'attaque. Combien veux-tu en donner à ton Mage?`);
 console.log(`Il te reste ${totalptAttaque}points d'attaque. Combien veux-tu en donner à ton Mage?`);
 console.log(ptAttaqueMage);
 if (ptAttaqueMage > totalptAttaque) {
+    while(ptAttaqueMage>totalptAttaque){
     ptAttaqueMage = +prompt(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}.`);
 console.log(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}.`);
-}else if (isNaN(ptAttaqueMage)) {
-    ptAttaqueMage = +prompt(`Ce n'est pas un nombre. Rentre un nombre`);
-    while (ptAttaqueMage > totalptVie) {
-        ptAttaqueMage = +prompt(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}.`);
-        console.log(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}.`);
-    } 
+    }
+}
+else if (isNaN(ptAttaqueMage)) {
+    while (isNaN(ptAttaqueMage)){
+        ptAttaqueMage = +prompt(`Ce n'est pas un nombre. Rentre un nombre`);
+        while (ptAttaqueMage > totalptVie) {
+            ptAttaqueMage = +prompt(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}.`);
+            console.log(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}.`);
+        } 
+    }
 }
 //------------MANA-----------
 let chiffre = Math.ceil(Math.random() * 3);
@@ -108,31 +123,39 @@ totalptAttaque = totalptAttaque - ptAttaqueMage; // totalptAttaque -= ptAttaqueM
 //----------------------ARCHER-----------
 //----------POINTS DE VIE-------
 let ptVieArcher = +prompt(`Il te reste ${totalptVie} points de vie. Combien veux-tu en donner à ton Archer?`);
-console.log(`Il te reste ${totalptVie} points de vie. Combien veux-tu en donner à ton Archer?`);
-console.log(ptVieArcher);
+    console.log(`Il te reste ${totalptVie} points de vie. Combien veux-tu en donner à ton Archer?`);
+    console.log(ptVieArcher);
 if (ptVieArcher > totalptVie) {
-    ptVieArcher = +prompt(`Tu n'as pas assez de points de vie. Rentre une valeur en dessous de ${totalptVie}.`);
-console.log(`Tu n'as pas assez de points de vie. Rentre une valeur en dessous de ${totalptVie}.`);
-}else if (isNaN(ptVieArcher)) {
-    ptVieArcher = +prompt(`Ce n'est pas un nombre. Rentre un nombre`);
-    while (ptVieArcher > totalptVie) {
-        ptVieArcher = +prompt(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
-    console.log(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
-    } 
+    while(ptVieArcher>totalptVie){
+        ptVieArcher = +prompt(`Tu n'as pas assez de points de vie. Rentre une valeur en dessous de ${totalptVie}.`);
+        console.log(`Tu n'as pas assez de points de vie. Rentre une valeur en dessous de ${totalptVie}.`);
+    }
+}
+else if (isNaN(ptVieArcher)) {
+    while (isNaN(ptVieArcher)){
+        ptVieArcher = +prompt(`Ce n'est pas un nombre. Rentre un nombre`);
+        while(ptVieArcher > totalptVie) {
+            ptVieArcher = +prompt(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
+            console.log(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
+        } 
+    }
 }
 //----------POINTS D'ATTAQUE------
 let ptAttaqueArcher = +prompt(`Il te reste ${totalptAttaque} points d'attaque. Combien veux-tu en donner à ton Archer?`);
-console.log(`Il te reste ${totalptAttaque} points d'attaque. Combien veux-tu en donner à ton Archer?`);
-console.log(ptAttaqueArcher);
+    console.log(`Il te reste ${totalptAttaque} points d'attaque. Combien veux-tu en donner à ton Archer?`);
+    console.log(ptAttaqueArcher);
 if (ptAttaqueArcher > totalptAttaque) {
     ptAttaqueArcher = +prompt(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}.`);
-console.log(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}.`);
-}else if (isNaN(ptAttaqueArcher)) {
-    ptAttaqueArcher = +prompt(`Ce n'est pas un nombre. Rentre un nombre`);
-    while (ptAttaqueArcher > totalptVie) {
-        ptAttaqueArcher = +prompt(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}.`);
-        console.log(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}.`);
-    } 
+    console.log(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}.`);
+}
+else if (isNaN(ptAttaqueArcher)) {
+    while (isNaN(ptAttaqueArcher)){
+        ptAttaqueArcher = +prompt(`Ce n'est pas un nombre. Rentre un nombre`);
+        while (ptAttaqueArcher > totalptVie) {
+            ptAttaqueArcher = +prompt(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}.`);
+            console.log(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}.`);
+        } 
+    }
 }
 //-------------FLECHE--------
 let flechesRandom = [7, 8, 9, 10, 11];

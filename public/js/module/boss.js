@@ -5,7 +5,7 @@ export class Boss {
         this.ptAttaque = ptAttaque;
     }
     attaque(heros) {
-        heros.ptVie -= this.ptAttaque;
+        heros.ptVie = heros.ptVie - this.ptAttaque;//heros.ptVie -= this.ptAttaque;
     }
     enigme(hero1, hero2, hero3) {
 

@@ -6,13 +6,13 @@ let tableauHeros = [guerrier, mage, archer];
 
 //Choix aléatoire du Boss
 function BossAleatoire() {
-    return tableauBoss[Math.round(Math.random() * 2)];
+    return tableauBoss[Math.floor(Math.random() * 3)];
 }
 let boss = BossAleatoire();
 
 //Choix de l'action des heros
 function action() {
-    alert(`Ton adversaire est ${boss.nom}. Choisis l'action de tes combattants (attaque, défense, normal):`)
+    alert(`Ton adversaire est ${boss.nom}. Il posséde ????. Choisis l'action de tes combattants (attaque, défense, normal):`)
     let actionGuerrier = prompt(`Quelle sera l'action de ${guerrier.nom}?`);
     switch (actionGuerrier) {
         case "attaque":
@@ -40,7 +40,7 @@ function action() {
             break;
         default:
             break;
-    }
+    } 
     let actionArcher = prompt(`Quelle sera l'action de ${archer.nom}?`);
     switch (actionArcher) {
         case "attaque":
@@ -54,7 +54,7 @@ function action() {
             break;
         default:
             break;
-    }
+    } 
 }
 
 //Fonction combat
