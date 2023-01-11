@@ -25,13 +25,12 @@ alert(`Ton total de point de vie à repartir entre tes Héros est ${totalptVie} 
 console.log(`Ton total de point de vie à repartir entre tes Héros est ${totalptVie} et celui de point d'attaque est ${totalptAttaque}.`);
 
 alert(`Ton adversaire est ${instance.tabBoss.nom}. Il posséde ${instance.tabBoss.ptVie} points de vie et ${instance.tabBoss.ptAttaque} points d'attaque.`);
-
+console.log(`Ton adversaire est ${instance.tabBoss.nom}. Il posséde ${instance.tabBoss.ptVie} points de vie et ${instance.tabBoss.ptAttaque} points d'attaque.`);
 //------------------------POINTS DE VIE--------------
 //-------GUERRIER------------
 
 instance.guerrier.ptVie = +prompt(`Tu as un total de ${totalptVie} points de vie. Combien de points de vie veux-tu donner à ton guerrier?`);
     console.log(`Tu as un total de ${totalptVie} points de vie. Combien de points de vie veux-tu donner à ton guerrier?`);
-    console.log(instance.guerrier.ptVie);
 if (instance.guerrier.ptVie > totalptVie) {
     while (instance.guerrier.ptVie > totalptVie ) {
         instance.guerrier.ptVie = +prompt(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
@@ -62,12 +61,13 @@ else if(instance.guerrier.ptVie <0){
         }
     }
 }
+console.log();
+console.log(`Tu as donné ${instance.guerrier.ptVie} points de vie à ton guerrier ${instance.guerrier.nom}`);
 totalptVie -= instance.guerrier.ptVie; 
 //-------MAGE------------
 
 instance.mage.ptVie = +prompt(`Il te reste ${totalptVie} points de vie. Combien de points de vie veux-tu donner à ton Mage?`);
     console.log(`Il te reste ${totalptVie} points de vie. Combien de points de vie veux-tu donner à ton Mage?`);
-    console.log(instance.mage.ptVie);
 if (instance.mage.ptVie > totalptVie) {
     while(instance.mage.ptVie>totalptVie){
         instance.mage.ptVie = +prompt(`Tu n'as pas assez de points de vie. Rentre une valeur en dessous de ${totalptVie}.`);
@@ -82,26 +82,27 @@ if (instance.mage.ptVie > totalptVie) {
         } 
     }
 }
-else if(instance.guerrier.ptVie <0){
-    while (instance.guerrier.ptVie <0){
-        instance.guerrier.ptVie = +prompt(`Veuillez rentrer un nombre positif, s'il vous plait`);
+else if(instance.mage.ptVie <0){
+    while (instance.mage.ptVie <0){
+        instance.mage.ptVie = +prompt(`Veuillez rentrer un nombre positif, s'il vous plait`);
         console.log(`Veuillez rentrer un nombre positif, s'il vous plait`);
-        while (isNaN(instance.guerrier.ptVie)){
-            instance.guerrier.ptVie = +prompt(`Ceci n'est pas un nombre. Veuillez rentrer un nombre, s'il vous plait`);
+        while (isNaN(instance.mage.ptVie)){
+            instance.mage.ptVie = +prompt(`Ceci n'est pas un nombre. Veuillez rentrer un nombre, s'il vous plait`);
             console.log(`Ceci n'est pas un nombre. Veuillez rentrer un nombre, s'il vous plait`);
-            while (instance.guerrier.ptVie > totalptVie) {
-                instance.guerrier.ptVie = +prompt(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
+            while (instance.mage.ptVie > totalptVie) {
+                instance.mage.ptVie = +prompt(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
                 console.log(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
             } 
         }
     }
 }
+console.log();
+console.log(`Tu as donné ${instance.mage.ptVie} points de vie à ton guerrier ${instance.mage.nom}`);
 totalptVie -= instance.mage.ptVie; 
 //-------ARCHER------------
 
 instance.archer.ptVie = +prompt(`Il te reste ${totalptVie} points de vie. Combien veux-tu en donner à ton Archer?`);
     console.log(`Il te reste ${totalptVie} points de vie. Combien veux-tu en donner à ton Archer?`);
-    console.log(instance.archer.ptVie);
 if (instance.archer.ptVie > totalptVie) {
     while(instance.archer.ptVie>totalptVie){
         instance.archer.ptVie = +prompt(`Tu n'as pas assez de points de vie. Rentre une valeur en dessous de ${totalptVie}.`);
@@ -117,26 +118,27 @@ else if (isNaN(instance.archer.ptVie)) {
         } 
     }
 }
-else if(instance.guerrier.ptVie <0){
-    while (instance.guerrier.ptVie <0){
-        instance.guerrier.ptVie = +prompt(`Veuillez rentrer un nombre positif, s'il vous plait`);
+else if(instance.archer.ptVie <0){
+    while (instance.archer.ptVie <0){
+        instance.archer.ptVie = +prompt(`Veuillez rentrer un nombre positif, s'il vous plait`);
         console.log(`Veuillez rentrer un nombre positif, s'il vous plait`);
-        while (isNaN(instance.guerrier.ptVie)){
-            instance.guerrier.ptVie = +prompt(`Ceci n'est pas un nombre. Veuillez rentrer un nombre, s'il vous plait`);
+        while (isNaN(instance.archer.ptVie)){
+            instance.archer.ptVie = +prompt(`Ceci n'est pas un nombre. Veuillez rentrer un nombre, s'il vous plait`);
             console.log(`Ceci n'est pas un nombre. Veuillez rentrer un nombre, s'il vous plait`);
-            while (instance.guerrier.ptVie > totalptVie) {
-                instance.guerrier.ptVie = +prompt(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
+            while (instance.archer.ptVie > totalptVie) {
+                instance.archer.ptVie = +prompt(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
                 console.log(`Tu n'as pas assez de points de vie.Rentre une valeur en dessous de ${totalptVie}.`);
             } 
         }
     }
 }
+console.log();
+console.log(`Tu as donné ${instance.guerrier.ptVie} points de vie à ton guerrier ${instance.guerrier.nom}`);
 totalptVie -= instance.archer.ptVie; 
 //------------------------POINTS D'ATTAQUE--------------
 //-------GUERRIER------------
 instance.guerrier.ptAttaque = +prompt(`Tu as un total de  ${totalptAttaque} points d'attaque. Combien de points d'attaque veux-tu donner à ton guerrier?`);
     console.log(`Tu as un total de  ${totalptAttaque} points d'attaque. Combien de points d'attaque veux-tu donner à ton guerrier?`);
-    console.log(instance.guerrier.ptAttaque);
 if (instance.guerrier.ptAttaque > totalptAttaque) {
     while (instance.guerrier.ptAttaque > totalptAttaque) {
         instance.guerrier.ptAttaque = +prompt(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}`);
@@ -152,11 +154,28 @@ else if (isNaN(instance.guerrier.ptAttaque)){
         } 
     }
 }
+else if(instance.guerrier.ptAttaque <0){
+    while (instance.guerrier.ptAttaque <0){
+        instance.guerrier.ptAttaque = +prompt(`Veuillez rentrer un nombre positif, s'il vous plait`);
+        console.log(`Veuillez rentrer un nombre positif, s'il vous plait`);
+        while (isNaN(instance.guerrier.ptAttaque)){
+            instance.guerrier.ptAttaque = +prompt(`Ceci n'est pas un nombre. Veuillez rentrer un nombre, s'il vous plait`);
+            console.log(`Ceci n'est pas un nombre. Veuillez rentrer un nombre, s'il vous plait`);
+            while (instance.guerrier.ptAttaque > totalptAttaque) {
+                instance.guerrier.ptAttaque = +prompt(`Tu n'as pas assez de points d'attaque.Rentre une valeur en dessous de ${totalptAttaque}.`);
+                console.log(`Tu n'as pas assez de points d'attaque.Rentre une valeur en dessous de ${totalptAttaque}.`);
+            } 
+        }
+    }
+}
+console.log();
+console.log(`Tu as donné ${instance.guerrier.ptAttaque} points d'attaque à ton guerrier ${instance.guerrier.nom}`);
+
 totalptAttaque -= instance.guerrier.ptAttaque;
 //-------MAGE------------
 instance.mage.ptAttaque = +prompt(`Il te reste ${totalptAttaque} points d'attaque. Combien veux-tu en donner à ton Mage?`);
 console.log(`Il te reste ${totalptAttaque}points d'attaque. Combien veux-tu en donner à ton Mage?`);
-console.log(instance.mage.ptAttaque);
+
 if (instance.mage.ptAttaque > totalptAttaque) {
     while(instance.mage.ptAttaque>totalptAttaque){
     instance.mage.ptAttaque = +prompt(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}.`);
@@ -172,11 +191,28 @@ else if (isNaN(instance.mage.ptAttaque)) {
         } 
     }
 }
+else if(instance.mage.ptAttaque <0){
+    while (instance.mage.ptAttaque <0){
+        instance.mage.ptAttaque = +prompt(`Veuillez rentrer un nombre positif, s'il vous plait`);
+        console.log(`Veuillez rentrer un nombre positif, s'il vous plait`);
+        while (isNaN(instance.mage.ptAttaque)){
+            instance.mage.ptAttaque = +prompt(`Ceci n'est pas un nombre. Veuillez rentrer un nombre, s'il vous plait`);
+            console.log(`Ceci n'est pas un nombre. Veuillez rentrer un nombre, s'il vous plait`);
+            while (instance.mage.ptAttaque > totalptAttaque) {
+                instance.mage.ptAttaque = +prompt(`Tu n'as pas assez de points d'attaque.Rentre une valeur en dessous de ${totalptAttaque}.`);
+                console.log(`Tu n'as pas assez de points d'attaque.Rentre une valeur en dessous de ${totalptAttaque}.`);
+            } 
+        }
+    }
+}
+console.log();
+console.log(`Tu as donné ${instance.mage.ptAttaque} points d'attaque à ton guerrier ${instance.mage.nom}`);
+
 totalptAttaque -= instance.mage.ptAttaque;
 //-------ARCHER------------
 instance.archer.ptAttaque = +prompt(`Il te reste ${totalptAttaque} points d'attaque. Combien veux-tu en donner à ton Archer?`);
     console.log(`Il te reste ${totalptAttaque} points d'attaque. Combien veux-tu en donner à ton Archer?`);
-    console.log(instance.archer.ptAttaque);
+    
 if (instance.archer.ptAttaque > totalptAttaque) {
     instance.archer.ptAttaque = +prompt(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}.`);
     console.log(`Tu n'as pas assez de points d'attaque. Rentre une valeur en dessous de ${totalptAttaque}.`);
@@ -190,6 +226,23 @@ else if (isNaN(instance.archer.ptAttaque)) {
         } 
     }
 }
+else if(instance.archer.ptAttaque <0){
+    while (instance.archer.ptAttaque <0){
+        instance.archer.ptAttaque = +prompt(`Veuillez rentrer un nombre positif, s'il vous plait`);
+        console.log(`Veuillez rentrer un nombre positif, s'il vous plait`);
+        while (isNaN(instance.archer.ptAttaque)){
+            instance.archer.ptAttaque = +prompt(`Ceci n'est pas un nombre. Veuillez rentrer un nombre, s'il vous plait`);
+            console.log(`Ceci n'est pas un nombre. Veuillez rentrer un nombre, s'il vous plait`);
+            while (instance.archer.ptAttaque > totalptAttaque) {
+                instance.archer.ptAttaque = +prompt(`Tu n'as pas assez de points d'attaque.Rentre une valeur en dessous de ${totalptAttaque}.`);
+                console.log(`Tu n'as pas assez de points d'attaque.Rentre une valeur en dessous de ${totalptAttaque}.`);
+            } 
+        }
+    }
+}
+console.log();
+console.log(`Tu as donné ${instance.archer.ptAttaque} points d'attaque à ton guerrier ${instance.archer.nom}`);
+
 totalptAttaque -= instance.archer.ptAttaque;
 
 alert(`\nLe nom du Guerrier: ${instance.guerrier.nom} \nLe nombre de points de vie: ${instance.guerrier.ptVie} et de points d'attaque: ${instance.guerrier.ptAttaque}\nLe nom du Mage: ${instance.mage.nom} \nLe nombre de points de vie: ${instance.mage.ptVie} et de points d'attaque: ${instance.mage.ptAttaque}\nLe nom de l'Archer: ${instance.archer.nom}\nLe nombre de points de vie: ${instance.archer.ptVie} et de points d'attaque: ${instance.archer.ptAttaque}`);
@@ -206,17 +259,19 @@ let ptVieBossPersonnages = instance.tabBoss.ptVie;
 // console.log(ptVieBossPersonnages);
 let action;
 
-//Boucle generale
+alert(`Le combat contre ${instance.tabBoss.nom} commence.`);
+console.log(`Le combat contre ${instance.tabBoss.nom} commence.`);
+//------COMBAT-----------
 while (instance.tabBoss.ptVie > 0 && (instance.guerrier.ptVie > 0 || instance.mage.ptVie > 0 || instance.archer.ptVie > 0)) {
 
     if (instance.tabBoss.ptVie > 0 && (instance.guerrier.ptVie > 0 || instance.mage.ptVie > 0 || instance.archer.ptVie > 0)) {
 
          // suivi points de vie
         console.log(`${instance.guerrier.nom} lui reste ${instance.guerrier.ptVie} de points de vie et ${instance.guerrier.rage} points de rage \n ${instance.mage.nom} lui reste ${instance.mage.ptVie} de points de vie et ${instance.mage.mana} points de mana \n ${instance.archer.nom} lui reste ${instance.archer.ptVie} de points de vie et ${instance.archer.fleche} de flèches \n  ${instance.tabBoss.nom} lui reste ${instance.tabBoss.ptVie} de points de vie `);
-
+        alert(`${instance.guerrier.nom} lui reste ${instance.guerrier.ptVie} de points de vie et ${instance.guerrier.rage} points de rage \n ${instance.mage.nom} lui reste ${instance.mage.ptVie} de points de vie et ${instance.mage.mana} points de mana \n ${instance.archer.nom} lui reste ${instance.archer.ptVie} de points de vie et ${instance.archer.fleche} de flèches \n  ${instance.tabBoss.nom} lui reste ${instance.tabBoss.ptVie} de points de vie `);
         //choix action
         action = prompt("Quelle action voulez vous choisir pour ce tour : défense, attaque, pacifique");
-        // });
+        alert("Quelle action voulez vous choisir pour ce tour : défense, attaque, pacifique");
          //Chacque perso tape a son tour
         for(let membre of equipe){
 
@@ -238,7 +293,6 @@ while (instance.tabBoss.ptVie > 0 && (instance.guerrier.ptVie > 0 || instance.ma
             }
             //tant que le boss est en vie
             if (instance.tabBoss.ptVie > 0 && (instance.guerrier.ptVie > 0 || instance.mage.ptVie > 0 || instance.archer.ptVie > 0)) {
-                //console.log(`Action : ${membre.nom} frappe ${instance.tabBoss.nom} -> ${instance.tabBoss.nom} ${instance.tabBoss.ptVie} points de vie - ${membre.ptAttaque} points de d'attaque`);
                 //attaque hero
                 switch (membre) {
                     case instance.guerrier:
@@ -252,7 +306,7 @@ while (instance.tabBoss.ptVie > 0 && (instance.guerrier.ptVie > 0 || instance.ma
                         break;
 
                     case instance.archer:
-                        //ataque archer
+                        //attaque archer
                         funct.attaqueArcher(membre)
                         break;
                 
@@ -261,17 +315,18 @@ while (instance.tabBoss.ptVie > 0 && (instance.guerrier.ptVie > 0 || instance.ma
                         break;
                 }
                 console.log(`${membre.nom} frappe ${instance.tabBoss.nom}. Il reste ${instance.tabBoss.ptVie} points de vie à ${instance.tabBoss.nom}`);
+                alert(`${membre.nom} frappe ${instance.tabBoss.nom}. Il reste ${instance.tabBoss.ptVie} points de vie à ${instance.tabBoss.nom}`);
                 //lancement enigme boss -20%points de vie
                 if (instance.tabBoss.ptVie <= ptVieBossPersonnages/5 && instance.tabBoss.ptVie > 0 && (instance.guerrier.ptVie > 0 || instance.mage.ptVie > 0 || instance.archer.ptVie > 0)){
                     alert(`${instance.tabBoss.nom} est bientôt mort. Pour l'achever répond à cette énigme. Si tu trouves la réponse tu gagnes, sinon, tu perds.`);
                     console.log(`${instance.tabBoss.nom} est bientôt mort. Pour l'achever répond à cette énigme. Si tu trouves la réponse tu gagnes, sinon, tu perds.`);
                     instance.tabBoss.Enigme(instance.guerrier, instance.mage, instance.archer);
-                    let finEnigme = instance.tabBoss.enigme(equipe);
-                    if (finEnigme == true){
-                        instance.tabBoss.ptVie = 0;
-                    } else if (finEnigme == false){
-                        equipe = [];
-                    }
+                    // let finEnigme = instance.tabBoss.enigme(equipe);
+                    // if (finEnigme == true){
+                    //     instance.tabBoss.ptVie = 0;
+                    // } else if (finEnigme == false){
+                    //     equipe = [];
+                    // }
                 }
                 
                 //-----------VICTOIRE------------
@@ -301,6 +356,10 @@ while (instance.tabBoss.ptVie > 0 && (instance.guerrier.ptVie > 0 || instance.ma
         instance.guerrier.attaque("end");
         instance.mage.attaque("end");
         instance.archer.attaque("end");
+    }else if (action == "pacifique") {
+        instance.guerrier.pacifique("end");
+        instance.mage.pacifique("end");
+        instance.archer.pacifique("end");
     }
     //DEFAITE
     if (equipe.length == 0) {

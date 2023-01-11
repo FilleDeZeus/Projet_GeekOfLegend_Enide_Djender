@@ -1,5 +1,3 @@
-import * as funct from "./function.js";
-
 export class Personnages{
     constructor(nom,ptVie,ptAttaque){
         this.nom =nom;
