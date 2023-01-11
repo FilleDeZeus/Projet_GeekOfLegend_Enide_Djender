@@ -1,14 +1,14 @@
-import {Heros} from './heros.js';
-export class Mage extends Heros{
-    constructor (nom, ptVIE, ptAttaque,action, mana){
-        super(nom, type,ptVie,ptAttaque, action);
-        this.Mana = mana;
-    }
-    Pouvoir(){
-        if (this.mana >= 2){
-            this.mana = this.mana - 2; //this.mana -= 2;
-        } else {
-            this.mana = 7;
-        }
-    }
-}
+// import * as perso from "./class.js";
+
+// export function attaqueMage(element) {
+//     if (element.mana < 2) {
+//         console.log(`${element.nom} n'as plus assez de mana pour attaquer, il doit attendre le tour suivant`);
+//         element.mana = 7;
+//     } else {
+//         instance.boss.pv -= element.pa;
+//         element.mana -= 2 ;
+//         console.log(`Le mana de ${element.nom} est passé à ${element.mana}`);
+//     }   
+// }
+// export let mage = new perso.Hero('Gandalf', 30, 20);
+// mage.mana = funct.randArr([7,9,11]);
